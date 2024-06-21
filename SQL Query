@@ -1,0 +1,7 @@
+Для связи 2х таблиц product и category используется третья таблица category_product где кажому id продукта присвоена категория.
+
+
+SELECT p.name AS 'Имя продукта', COALESCE (c.name, '') AS 'Категория' 
+FROM product p
+LEFT JOIN category_product cat ON p.id = cat.product_id
+LEFT JOIN category с ON cat.category_id = c.id;
